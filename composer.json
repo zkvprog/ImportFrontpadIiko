@@ -1,0 +1,13 @@
+{
+    "name": "xls-parser/xls-parser",
+    "require": {
+        "phpoffice/phpspreadsheet": "^1.8",
+        "vlucas/phpdotenv": "^4.2",
+        "giggsey/libphonenumber-for-php": "^8.12"
+    },
+    "autoload": {
+        "psr-4": {
+            "zkvprog\\": "src/"
+        }
+    }
+}
