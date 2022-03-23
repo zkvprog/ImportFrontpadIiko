@@ -15,22 +15,23 @@ class FrontpadReader
         'total', 'last_order'
     ];
 
+    protected $files;
+
     protected $data;
 
     public static function getImportFiles($dir = false, $files = false)
     {
         $frontpadImportFiles = new FrontpadImportFiles($dir, $files);
-        if ($files) {
-            return $frontpadImportFiles->getFiles();
-        } else {
+        if (empty($files)) {
             $frontpadImportFiles->scanImportFiles();
-            return $frontpadImportFiles->getFilesFull();
         }
+
+        return $frontpadImportFiles;
     }
 
-    public function __construct()
+    public function __construct(FrontpadImportFiles $files)
     {
-
+        $this->files = $files->getFilesFull();
     }
 
     public function setStartRow(int $startRow)
@@ -38,9 +39,9 @@ class FrontpadReader
         $this->startRow = $startRow;
     }
 
-    public function read(FrontpadImportFiles $files)
+    public function read()
     {
-        foreach ($files as $file) {
+        foreach ($this->files as $file) {
             $this->readXls($file);
         }
 

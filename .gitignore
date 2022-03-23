@@ -1,4 +1,7 @@
 .idea
 .env
 /import/
+/export/
+/import_file/
 /vendor/
+/debug_file/

@@ -8,7 +8,7 @@ class Import
     protected $writer;
     protected $converter;
 
-    public function __construct($reader, $writer)
+    public function __construct()
     {
         return $this;
     }
@@ -42,7 +42,7 @@ class Import
         $dataReader = $this->reader->read();
 
         if (isset($this->converter)) {
-            $data = $this->converter($dataReader);
+            $data = $this->converter->convert($dataReader);
         }
 
         $this->writer->write($data);
