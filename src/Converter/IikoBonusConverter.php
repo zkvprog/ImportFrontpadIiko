@@ -3,10 +3,15 @@
 namespace zkvprog\Converter;
 
 use zkvprog\Formatter\TelephoneFormatter;
+use zkvprog\Interfaces\ConverterInterface;
 
-class IikoBonusConverter
+class IikoBonusConverter implements ConverterInterface
 {
-    public function convert($data) : array
+    /**
+     * @param array $data
+     * @return array
+     */
+    public function convert(array $data) : array
     {
         $result = [];
 
